@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher_example/url_launches.dart';
+import 'package:url_launcher_example/url_links.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -13,24 +15,30 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: const [
-              UrlLauncherButton(
-                text: 'Launch Email',
-              ),
-              UrlLauncherButton(
-                text: 'Launch SMS',
-              ),
-              UrlLauncherButton(
-                text: 'Launch Phone Call',
-              ),
-              UrlLauncherButton(
-                text: 'Launch https url',
-              ),
-              UrlLauncherButton(
-                text: 'Launch http url',
-              ),
-            ]),
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            UrlLauncherButton(
+              text: 'Launch Email',
+              onPressed: () => launchEmail(),
+            ),
+            UrlLauncherButton(
+              text: 'Launch SMS',
+              onPressed: () => launchSMS(phoneNumber: myPhoneNumber),
+            ),
+            UrlLauncherButton(
+              text: 'Launch Phone Call',
+              onPressed: () => launchCall(phoneNumber: myPhoneNumber),
+            ),
+            UrlLauncherButton(
+              text: 'Launch url in app',
+              onPressed: () => launchUrlSite(url: httpsLink),
+            ),
+            UrlLauncherButton(
+              text: 'Launch url in external app',
+              onPressed: () => launchUrlSiteBrowser(url: httpsLink),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -46,7 +54,7 @@ class UrlLauncherButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
-      child: SizedBox(width: 150, child: Center(child: Text(text))),
+      child: SizedBox(width: 200, height: 40, child: Center(child: Text(text))),
     );
   }
 }
