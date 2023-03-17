@@ -1,6 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// Open site in in-app browser
 Future<void> launchUrlSite({required String url}) async {
   final Uri urlParsed = Uri.parse(url);
 
@@ -11,6 +12,7 @@ Future<void> launchUrlSite({required String url}) async {
   }
 }
 
+// Open site in external browser app
 Future<void> launchUrlSiteBrowser({required String url}) async {
   final Uri urlParsed = Uri.parse(url);
 
@@ -21,6 +23,7 @@ Future<void> launchUrlSiteBrowser({required String url}) async {
   }
 }
 
+// Open default phone app with dialed number
 Future<void> launchCall({required String phoneNumber}) async {
   final Uri urlParsed = Uri.parse('tel:$phoneNumber');
 
@@ -31,6 +34,7 @@ Future<void> launchCall({required String phoneNumber}) async {
   }
 }
 
+// Open default mail app with subject and body
 Future<void> launchEmail() async {
   final String email = Uri.encodeComponent("filip.doganowski@gmail.com");
   final String subject = Uri.encodeComponent("Hello!");
@@ -50,6 +54,25 @@ Future<void> launchEmail() async {
   }
 }
 
+// Open default mail app without subject and body
+Future<void> launchEmailWithoutSubject() async {
+  final String email = Uri.encodeComponent("filip.doganowski@gmail.com");
+  final Uri mail = Uri.parse("mailto:$email");
+
+  try {
+    final bool launched = await launchUrl(mail);
+    if (launched) {
+      // email app opened
+    } else {
+      // email app is not opened
+      throw Exception('Could not launch email app');
+    }
+  } on PlatformException catch (e) {
+    throw Exception('Error launching email: $e');
+  }
+}
+
+// Open default messages app with selected phone number
 Future<void> launchSMS({required String phoneNumber}) async {
   final Uri urlParsed = Uri.parse('sms:$phoneNumber');
 
