@@ -8,10 +8,10 @@ Check the full step by step article on [medium](https://medium.com/@filip.dogano
 
 This example app demonstrates the following features of the url_launcher package:
 
-Launching URLs in the device's default browser
-Opening URLs in other apps that support the given URL scheme
-Dialing phone numbers
-Opening email apps
+- Launching URLs in the device's default browser
+- Opening URLs in other apps that support the given URL scheme
+- Dialing phone numbers
+- Opening email apps
 
 ## Preview
 
@@ -25,7 +25,7 @@ Opening email apps
 
 ## Links
 
-[Portfolio](https://flutterdog.com)\n
-[LinkedIn](https://www.linkedin.com/in/filip-doganowski-9630b7181/)\n
-[Twitter](https://twitter.com/FilipDoganowski)\n
+[Portfolio](https://flutterdog.com)<br />
+[LinkedIn](https://www.linkedin.com/in/filip-doganowski-9630b7181/)<br />
+[Twitter](https://twitter.com/FilipDoganowski)<br />
 [Medium](https://medium.com/@filip.doganowski)
